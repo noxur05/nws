@@ -22,5 +22,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Team::factory(20)->create();
+
+        $teams = Team::all();
+        foreach ($teams as $team) {
+                $randomUsers = User::all()->random(rand(30, 50));
+                $userData = [];
+                foreach($randomUsers as $user) {
+                    $role = [0, 0, 0, 1][rand(0, 3)];
+                    $userData[$user->id] = ['role' => $role];
+                }
+                $team->users()->attach($userData);
+        }
     }
 }

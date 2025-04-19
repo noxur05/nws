@@ -10,7 +10,7 @@ class Team extends BaseModel
 
     public $timestamps = true;
 
-    public function teams() {
-        return $this->belongsToMany(Team::class, 'team_user')->withPivot('role');
+    public function users() {
+        return $this->belongsToMany(User::class, 'team_user')->withPivot('role');
     }
 }
