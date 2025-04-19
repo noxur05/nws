@@ -13,4 +13,8 @@ class Team extends BaseModel
     public function users() {
         return $this->belongsToMany(User::class, 'team_user')->withPivot('role');
     }
+
+    public function projects() {
+        return $this->hasMany(Project::class);
+    }
 }

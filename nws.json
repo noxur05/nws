@@ -70,7 +70,7 @@
         "type_id": "foreignId -> resource_types.id|onDelete:restrict",
         "name": "string",
         "config": "json",
-        "status": "enum:pending,active,failed,deleted",
+        "status": "enum:active,inactive",
         "created_at": "timestamp"
       },
       "relations": {
