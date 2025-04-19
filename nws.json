@@ -1,0 +1,127 @@
+{
+    "users": {
+      "columns": {
+        "id": "increments",
+        "name": "string",
+        "email": "string|unique",
+        "email_verified_at": "timestamp|null",
+        "password": "string",
+        "is_verified": "boolean|default:false",
+        "remember_token": "string|null"
+      },
+      "relations": {
+        "owned_teams": "hasMany:Team",
+        "teams": "belongsToMany:Team (via team_user)"
+      }
+    },
+  
+    "teams": {
+      "columns": {
+        "id": "increments",
+        "name": "string",
+        "owner_id": "foreignId -> users.id|onDelete:cascade",
+        "created_at": "timestamp"
+      },
+      "relations": {
+        "owner": "belongsTo:User",
+        "members": "belongsToMany:User (via team_user)",
+        "projects": "hasMany:Project"
+      }
+    },
+  
+    "team_user": {
+      "columns": {
+        "id": "increments",
+        "user_id": "foreignId -> users.id|onDelete:cascade",
+        "team_id": "foreignId -> teams.id|onDelete:cascade",
+        "role": "enum:admin,member"
+      },
+      "pivot": true
+    },
+  
+    "projects": {
+      "columns": {
+        "id": "increments",
+        "name": "string",
+        "team_id": "foreignId -> teams.id|onDelete:cascade",
+        "created_at": "timestamp"
+      },
+      "relations": {
+        "team": "belongsTo:Team",
+        "resources": "hasMany:Resource"
+      }
+    },
+  
+    "resource_types": {
+      "columns": {
+        "id": "increments",
+        "name": "string",
+        "description": "text"
+      },
+      "relations": {
+        "resources": "hasMany:Resource"
+      }
+    },
+  
+    "resources": {
+      "columns": {
+        "id": "increments",
+        "project_id": "foreignId -> projects.id|onDelete:cascade",
+        "type_id": "foreignId -> resource_types.id|onDelete:restrict",
+        "name": "string",
+        "config": "json",
+        "status": "enum:pending,active,failed,deleted",
+        "created_at": "timestamp"
+      },
+      "relations": {
+        "project": "belongsTo:Project",
+        "type": "belongsTo:ResourceType",
+        "events": "hasMany:ResourceEvent"
+      }
+    },
+  
+    "resource_events": {
+      "columns": {
+        "id": "increments",
+        "resource_id": "foreignId -> resources.id|onDelete:cascade",
+        "user_id": "foreignId -> users.id|null|onDelete:set null",
+        "action": "string",
+        "message": "text",
+        "created_at": "timestamp"
+      },
+      "relations": {
+        "resource": "belongsTo:Resource",
+        "user": "belongsTo:User"
+      }
+    },
+  
+    "api_keys": {
+      "columns": {
+        "id": "increments",
+        "user_id": "foreignId -> users.id|onDelete:cascade",
+        "name": "string",
+        "key": "string|unique",
+        "is_active": "boolean|default:true",
+        "created_at": "timestamp",
+        "updated_at": "timestamp"
+      },
+      "relations": {
+        "user": "belongsTo:User"
+      }
+    },
+  
+    "billing_records": {
+      "columns": {
+        "id": "increments",
+        "project_id": "foreignId -> projects.id|onDelete:cascade",
+        "resource_id": "foreignId -> resources.id|null|onDelete:set null",
+        "amount": "decimal(10,2)",
+        "usage_details": "json",
+        "reco   rded_at": "timestamp"
+      },
+      "relations": {
+        "project": "belongsTo:Project",
+        "resource": "belongsTo:Resource"
+      }
+    }
+  }
