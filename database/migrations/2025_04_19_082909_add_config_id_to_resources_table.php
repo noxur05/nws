@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resources', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('project_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
-            $table->boolean('active')->default(true);
-            $table->timestamps();
+        Schema::table('resources', function (Blueprint $table) {
+            //
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resources');
+        Schema::table('resources', function (Blueprint $table) {
+            //
+        });
     }
 };
