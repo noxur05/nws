@@ -2,22 +2,20 @@
 
 namespace Database\Factories;
 
+use App\Models\Project;
+use App\Models\ResourceConfig;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resource>
- */
 class ResourceFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
+        $project = Project::inRandomOrder()->first();
+        $config = ResourceConfig::inRandomOrder()->first();
         return [
-            //
+            'project_id' => $project->id,
+            'config_id'=> $config->id,
+            'active' => [1, 1, 0, 1][rand(0, 3)]
         ];
     }
 }

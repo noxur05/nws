@@ -62,14 +62,20 @@
         "resources": "hasMany:Resource"
       }
     },
-  
+    "resource_configs":{
+      "columns":{
+        "id":"increments",
+        "resource_type_id":"foreignId -> resource_types.id|onDelete:cascade",
+        "config": "json",
+        "price":"decimal(10,2)"
+      }
+    },
     "resources": {
       "columns": {
         "id": "increments",
         "project_id": "foreignId -> projects.id|onDelete:cascade",
-        "type_id": "foreignId -> resource_types.id|onDelete:restrict",
+        "config_id": "foreignId -> resource_configs.id|onDelete:restrict",
         "name": "string",
-        "config": "json",
         "status": "enum:active,inactive",
         "created_at": "timestamp"
       },
@@ -117,7 +123,7 @@
         "resource_id": "foreignId -> resources.id|null|onDelete:set null",
         "amount": "decimal(10,2)",
         "usage_details": "json",
-        "reco   rded_at": "timestamp"
+        "recorded_at": "timestamp"
       },
       "relations": {
         "project": "belongsTo:Project",

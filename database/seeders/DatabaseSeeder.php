@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Resource;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -12,7 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ResourceTypeSeeder::class
+            ResourceTypeSeeder::class,
+            ResourceConfigSeeder::class,
         ]);
         User::factory(99)->create();
 
@@ -35,6 +37,8 @@ class DatabaseSeeder extends Seeder
                 $team->users()->attach($userData);
         }
 
-        Project::factory(50)->create();
+        Project::factory(20)->create();
+
+        Resource::factory(40)->create();
     }
 }
