@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-</head>
-<body>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-icons.min.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     
+</head>
+<body class="">
+    <div class="container-fluid">
+        @include('layouts.header')
+        @yield('content')
+    </div>
 </body>
 </html>
