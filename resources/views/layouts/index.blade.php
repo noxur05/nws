@@ -16,7 +16,7 @@
     </style>
 </head>
 <body class="bg-secondary-subtle">
-    <div class="bg-primary-subtle sticky-top">
+    <div class="bg-primary-subtle">
         <div class="container-xxl">
             @include('layouts.header')
         </div>
