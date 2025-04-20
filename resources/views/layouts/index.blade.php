@@ -11,9 +11,11 @@
     
 </head>
 <body class="">
-    <div class="container-fluid">
-        @include('layouts.header')
-        @yield('content')
+    <div class="bg-body-tertiary">
+        <div class="container-xxl">
+            @include('layouts.header')
+        </div>
     </div>
+    {{-- @yield('content') --}}
 </body>
 </html>
