@@ -8,14 +8,19 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons.min.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
 </head>
-<body class="bg-secondary">
+<body class="bg-secondary-subtle">
     <div class="bg-primary-subtle sticky-top">
         <div class="container-xxl">
             @include('layouts.header')
         </div>
     </div>
-    {{-- @yield('content') --}}
+    @yield('content')
 </body>
 </html>
