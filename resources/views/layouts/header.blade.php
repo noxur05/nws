@@ -27,10 +27,11 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <div class="d-flex g-2">
+      <div class="g-2 d-none d-lg-flex">
+        {{-- TODO: add this as a component --}}
         <form class="" role="search">
           <div class="input-group">
-            <input type="text" class="form-control border-primary" placeholder="Recipient's username">
+            <input type="text" class="form-control" placeholder="Search">
             <button class="btn btn-outline-primary" type="submit">Search</button>
           </div>
         </form>

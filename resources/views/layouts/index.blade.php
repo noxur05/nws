@@ -10,8 +10,8 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     
 </head>
-<body class="">
-    <div class="bg-body-tertiary">
+<body class="bg-secondary">
+    <div class="bg-primary-subtle sticky-top">
         <div class="container-xxl">
             @include('layouts.header')
         </div>
