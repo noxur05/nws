@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ResourceTypeSeeder::class
+            ResourceTypeSeeder::class,
+            ResourceConfigSeeder::class,
         ]);
         User::factory(99)->create();
 

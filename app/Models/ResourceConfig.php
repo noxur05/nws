@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ResourceConfig extends Model
+class ResourceConfig extends BaseModel
 {
-    //
+    public function type() {
+        
+    }
 }

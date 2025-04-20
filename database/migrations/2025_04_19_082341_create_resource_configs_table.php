@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('resource_configs', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId('type_id')->constrained('resource_types')->cascadeOnDelete();
+            $table->json('config');
+            $table->decimal('price', 10, 2);
         });
     }
 
