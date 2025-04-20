@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
