@@ -11,14 +11,14 @@ class AuthMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (in_array($request->getPathInfo(), ['/register', '/login']) and !FacadesAuth::check()) {
+        // if (!FacadesAuth::check()) {
+            // return redirect()->route('registration.login');
+        // }
+
+        if (in_array($request->getPathInfo(), ['/register', '/login']) && !FacadesAuth::check()) {
             return $next($request);
-        }
-
-        if (!FacadesAuth::check()) {
-            // return redirect()->route('registration.register');
-        }
-
+        } 
+        
         return $next($request);
     }
 }

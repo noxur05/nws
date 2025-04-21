@@ -18,7 +18,7 @@ class UserController extends Controller
             $incomingFields['password'] = bcrypt($incomingFields['password']);
             if ($user = User::create($incomingFields)) {
                 Auth::login($user);
-                return redirect('/');
+                return redirect('/', 201);
             }
         }
 
@@ -33,7 +33,29 @@ class UserController extends Controller
         }
 
         if ($request->isMethod('post')) {
-            return view('registration.login');
+            $incomingFields = $request->validate([
+                'email' => 'required|email|max:255',
+                'password' => 'required|min:8'
+            ]);
+            if (Auth::attempt($incomingFields)) {
+                $request->session()->regenerate();
+                return redirect('/');
+            }
+
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
         }
+    }
+
+    public function logout(Request $request) {
+        if ($request->isMethod('post')) {
+            if (Auth::logout()) {
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+            }
+            return redirect()->route('registration.login');
+        }
+        return response('MEthod is not post');
     }
 }

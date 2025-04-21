@@ -15,12 +15,4 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(AuthMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->report(
-            function ($request) {
-                if ($request->routeIs('registration.register')) {
-                    return true;
-                }
-                return false;
-            }
-        );
     })->create();
