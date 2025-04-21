@@ -11,12 +11,15 @@ class AuthMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-
-        if (!FacadesAuth::check()) {
-            return response(
-                'You are not authenticated', 401
-            );
+        if ($request->getPathInfo() == '/register') {
+            return $next($request);
         }
+        if (!FacadesAuth::check()) {
+            // return redirect()->route('registration.register');
+            return response('You are not authenticated', 401);
+            // return $next($request);
+        }
+
         return $next($request);
     }
 }

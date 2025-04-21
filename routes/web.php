@@ -8,6 +8,5 @@ Route::get('/', function () {
 });
 
 Route::controller(UserController::class)->name('registration.')->group(function () {
-    Route::get('/register', 'register')->name('register');
-    Route::post('/register', 'register')->name('register');
+    Route::match(['get', 'post'],'/register', 'register')->name('register');
 });
