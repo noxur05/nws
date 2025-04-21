@@ -7,8 +7,7 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-// Route::get('/register', [UserController::class, 'register']);
-
-Route::controller(UserController::class)->group(function () {
+Route::controller(UserController::class)->name('registration.')->group(function () {
     Route::get('/register', 'register')->name('register');
+    Route::post('/register', 'register')->name('register');
 });
