@@ -12,7 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(AuthMiddleware::class);
+        $middleware->alias([
+            'custom.auth' => AuthMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
     })->create();

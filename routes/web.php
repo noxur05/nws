@@ -3,11 +3,11 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::middleware(['custom.auth'])->get('/', function () {
     return view('home.index');
-});
+})->name('home');
 
-Route::controller(UserController::class)->name('registration.')->group(function () {
+Route::middleware(['custom.auth'])->controller(UserController::class)->name('registration.')->group(function () {
     Route::match(['get', 'post'],'/register', 'register')->name('register');
     Route::match(['get', 'post'], '/login', 'login')->name('login');
 });
