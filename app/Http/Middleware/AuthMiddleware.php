@@ -23,9 +23,7 @@ class AuthMiddleware
                     return redirect()->route('registration.login');
                 }
             }
-            dump($path);
         }
-
 
         return $next($request);
     }

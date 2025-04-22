@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Bagtiyar Rejepov',
-            'email' => 'a@a.a',
+            'email' => 'km@gmail.com',
             'email_verified_at' => now(),
             'password' => bcrypt('password')
         ]);
 
-        Team::factory(20)->create();
+        Team::factory(2000)->create();
 
         $teams = Team::all();
         foreach ($teams as $team) {

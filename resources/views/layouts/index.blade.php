@@ -21,6 +21,20 @@
             @include('layouts.header')
         </div>
     </div>
-    @yield('content')
-</body>
+    @auth
+        <div class="container-xxl mt-5">
+            <div class="row">
+                <div class="col-3">
+                    @include('components.projects.table')
+                    @include('components.resource_types.table')
+                </div>
+                <div class="col">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    @else
+        @yield('content')
+    @endauth
+    </body>
 </html>
