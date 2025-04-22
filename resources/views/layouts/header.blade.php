@@ -35,7 +35,7 @@
       <div class="mx-2">
         <form action="{{route('logout')}}" method="POST">
           @csrf
-          <button type="submit" class="btn btn-primary">Logout</button>
+          <button type="submit" class="btn btn-primary mr-0">Logout</button>
         </form>
     @else
         @if (request()->routeIs('registration.login'))

@@ -23,8 +23,11 @@
     </div>
     @auth
         <div class="container-xxl mt-5">
+            <div class="">
+                
+            </div>
             <div class="row">
-                <div class="col-3">
+                <div class="col-3 d-none d-sm-block">
                     @include('components.projects.table')
                     @include('components.resource_types.table')
                 </div>

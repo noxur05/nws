@@ -4,12 +4,26 @@
     Home
 @endsection
 @section('content')
-    <div class="text-center h1">Teams You Have</div>
-    <div class="row g-3">
-        @forelse ($teams as $team )
-            <x-card title="{{ $team->name }}" class="col-3" subtitle="Card subtitle" body="Some quick example text to build on the card title and make up the bulk of the card's content." />
-        @empty
-            <div class="">No Teams Are Available</div>
-        @endforelse
+    <div class="">
+        <div class="text-center h1">Teams You Have</div>
+        <div class="row g-3">
+            @forelse ($owned_teams as $team )
+                <x-card title="{{ $team->name }}" class="col-12 col-sm-6 col-md-3" subtitle="Users: {{$team->users_count}}"/>
+            @empty
+                <div class="">You have no teams</div>
+            @endforelse
+        </div>
+    </div>
+    <div class="my-5">
+        <div class="text-center h1">
+            Teams You Are In
+        </div>
+        <div class="row g-3">
+            @forelse ($teams as $team )
+                <x-card title="{{ $team->name }}" class="col-12 col-sm-6 col-md-3" subtitle="Users: {{$team->users_count}}"/>
+            @empty
+                <div class="">You are in no other teams</div>
+            @endforelse
+        </div>
     </div>
 @endsection
