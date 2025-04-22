@@ -4,8 +4,8 @@ namespace App\Models;
 
 class ResourceType extends BaseModel
 {
-    public function resources()
+    public function resourceConfigs()
     {
-        return $this->hasMany(Resource::class);
+        return $this->hasMany(ResourceConfig::class, 'type_id');
     }
 }

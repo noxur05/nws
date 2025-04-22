@@ -11,7 +11,7 @@ class ResourceTypeController extends Controller
     }
     
     public function show($id) {
-        $resourceType = ResourceType::find($id)->resources;
+        $resourceType = ResourceType::with('resourceConfigs')->find($id);
         if (!$resourceType) {
             abort(404, 'Resource Type not found');
         }
