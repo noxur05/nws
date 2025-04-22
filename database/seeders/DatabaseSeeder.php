@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         $teams = Team::all();
         foreach ($teams as $team) {
-                $randomUsers = User::all()->random(rand(30, 50));
+                $randomUsers = User::all()->random(rand(5, 25));
                 $userData = [];
                 foreach($randomUsers as $user) {
                     $role = [0, 0, 0, 1][rand(0, 3)];

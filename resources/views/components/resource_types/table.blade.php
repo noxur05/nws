@@ -12,7 +12,9 @@
       <tbody>
         @forelse ($resource_types as $resource_type)
           <tr>
-            <td>{{ $resource_type->name }}</td>
+            <td>
+              <a class="link-primary text-decoration-none" href="{{route('resource_type.show', ['id' => $resource_type['id']])}}">{{ $resource_type->name }}</a>
+            </td>
           </tr>
         @empty
           <tr>
