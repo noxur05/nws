@@ -15,4 +15,9 @@ class Project extends Model
     {
         return $this->belongsTo(Team::class, 'team_id');
     }
+
+    public function resources()
+    {
+        return $this->hasMany(Resource::class);
+    }
 }
