@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             ResourceTypeSeeder::class,
             ResourceConfigSeeder::class,
         ]);
-        User::factory(99)->create();
+        User::factory(199)->create();
 
         User::factory()->create([
             'name' => 'Bagtiyar Rejepov',
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
-        Team::factory(200)->create();
+        Team::factory(300)->create();
 
         $teams = Team::all();
         foreach ($teams as $team) {
@@ -40,6 +40,6 @@ class DatabaseSeeder extends Seeder
 
         Project::factory(400)->create();
 
-        Resource::factory(40)->create();
+        Resource::factory(4000)->create();
     }
 }

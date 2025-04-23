@@ -16,8 +16,8 @@ class Resource extends Model
         return $this->belongsTo(Project::class, 'project_id');
     }
 
-    public function type()
+    public function config()
     {
-        return $this->belongsTo(ResourceType::class, 'type_id');
+        return $this->belongsTo(ResourceConfig::class, 'config_id');
     }
 }

@@ -12,9 +12,6 @@ class TeamController extends Controller
         $currentUser = Auth::user();
         $team = Team::find($id);
         $isOwner = $currentUser->id == $team->owner_id;
-        // if ($isOwner) {
-        //     $team->load(['users', 'projects']);
-        // }
-        return view('team.index')->with(['justy' => $team, 'isOwner' => $isOwner]);
+        return view('team.index')->with(['team' => $team, 'isOwner' => $isOwner]);
     }
 }

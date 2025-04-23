@@ -13,6 +13,7 @@ Route::middleware(['custom.auth'])->controller(HomeController::class)->name('hom
 
 Route::middleware(['custom.auth'])->controller(ProjectController::class)->name('project.')->prefix('projects')->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('{id}', 'show')->name('show');
 });
 
 Route::middleware(['custom.auth'])->controller(ResourceTypeController::class)->name('resource_type.')->prefix('resource_types')->group(function () {
