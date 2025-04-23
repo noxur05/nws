@@ -17,7 +17,7 @@
             @endforelse
         </div>
     </div>
-    <div class="my-5">
+    {{-- <div class="my-5">
         <div class="text-center h1">
             Teams You Are In
         </div>
@@ -28,5 +28,5 @@
                 <div class="">You are in no other teams</div>
             @endforelse
         </div>
-    </div>
+    </div> --}}
 @endsection

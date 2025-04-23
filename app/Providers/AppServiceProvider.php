@@ -24,8 +24,14 @@ class AppServiceProvider extends ServiceProvider
             $projects = $user->teams->flatMap(function ($team) {
                 return $team->projects;
             });
+            $ownedProjects = $user->ownedTeams->flatMap(function ($team) {
+                return $team->projects;
+            });
+
+             $globalProjects = $projects->concat($ownedProjects);
             $resource_types = ResourceType::all();
-            $view->with(['projects' => $projects, 'resource_types' => $resource_types]);
+            $teams = $user->teams;
+            $view->with(['globalProjects' => $globalProjects, 'globalResourceTypes' => $resource_types, 'globalTeams' => $teams]);
         });
     }
 }

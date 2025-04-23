@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        @forelse ($resource_types as $resource_type)
+        @forelse ($globalResourceTypes as $resource_type)
           <tr>
             <td>
               <a class="link-primary text-decoration-none" href="{{route('resource_type.show', ['id' => $resource_type['id']])}}">{{ $resource_type->name }}</a>

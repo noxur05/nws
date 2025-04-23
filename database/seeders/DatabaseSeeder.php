@@ -25,11 +25,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
-        Team::factory(2000)->create();
+        Team::factory(20)->create();
 
         $teams = Team::all();
         foreach ($teams as $team) {
-                $randomUsers = User::all()->random(rand(5, 25));
+                $randomUsers = User::where('id', '!=', $team->owner_id)->get()->random(rand(5, 25));
                 $userData = [];
                 foreach($randomUsers as $user) {
                     $role = [0, 0, 0, 1][rand(0, 3)];

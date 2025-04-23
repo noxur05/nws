@@ -12,7 +12,7 @@
     <div class="collapse" id="collapseExample">
       <table class="table table-striped rounded-bottom-3 text-center mb-0" style="border: 1px solid #dee2e6; overflow: hidden;">
         <tbody>
-          @forelse ($projects as $project)
+          @forelse ($globalProjects as $project)
           <tr>
             <td><a class="link-primary text-decoration-none" href="{{ route('project.index', ['id'=> $project['id']])}}">{{ $project->name }}</a></td>
           </tr>
