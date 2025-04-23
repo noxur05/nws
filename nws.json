@@ -116,14 +116,13 @@
       }
     },
   
-    "billing_records": {
+    "billings": {
       "columns": {
         "id": "increments",
         "project_id": "foreignId -> projects.id|onDelete:cascade",
-        "resource_id": "foreignId -> resources.id|null|onDelete:set null",
         "amount": "decimal(10,2)",
         "usage_details": "json",
-        "recorded_at": "timestamp"
+        "created_at": "timestamp"
       },
       "relations": {
         "project": "belongsTo:Project",

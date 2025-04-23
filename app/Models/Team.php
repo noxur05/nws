@@ -11,7 +11,7 @@ class Team extends BaseModel
     public $timestamps = true;
 
     public function users() {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('role');
     }
 
     public function owner() {

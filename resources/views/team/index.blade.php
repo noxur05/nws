@@ -14,12 +14,11 @@
             <div class="h3 mb-0 pb-0">Users</div>
                 @forelse ($justy->users as $user)
                     <x-card 
-                        class="col-12 col-sm-6 col-md-4"
-                        title="{{ $user->name }}" 
+                        class='col-12 col-sm-6 col-md-4'
+                        :title=" '<span class=\'d-flex justify-content-between w-100\'>' . $user->name . ($user->pivot->role ? '<i class=\'bi bi-star-fill\'></i>' : '') . '</span>'"
                         subtitle="{{ $user->email }}"
                     />
                 @empty
-                    {{-- <div class="col-12"></div> --}}
                 @endforelse
         </div>
     @endif

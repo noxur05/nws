@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
-        Team::factory(20)->create();
+        Team::factory(200)->create();
 
         $teams = Team::all();
         foreach ($teams as $team) {
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
                 $team->users()->attach($userData);
         }
 
-        Project::factory(20)->create();
+        Project::factory(400)->create();
 
         Resource::factory(40)->create();
     }
