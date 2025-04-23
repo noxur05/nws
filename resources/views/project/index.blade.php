@@ -23,11 +23,11 @@
                 @endphp
                 <x-card 
                     class='col-12 col-sm-6 col-md-4'
-                    title="Resource ID: {{$resource->id}}"
+                    title="{{$resource->config->type->name}}"
                     subtitle="{{ $resource->created_at }}"
                     :body="$body"
                 />
-                {{-- {{$resource->config}} --}}
+                {{-- {{$resource->config->type->name}} --}}
             @empty
             @endforelse
     </div>
