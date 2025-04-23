@@ -8,7 +8,10 @@
         <div class="text-center h1">Teams You Have</div>
         <div class="row g-3">
             @forelse ($owned_teams as $team )
-                <x-card title="{{ $team->name }}" class="col-12 col-sm-6 col-md-3" subtitle="Users: {{$team->users_count}}"/>
+                @php
+                    $stretchedLink = '<a class="stretched-link link-secondary text-decoration-none" href="' . route("team.show", ["id" => $team["id"]]) . '">Users: ' . $team->users_count . '</a>';
+                @endphp
+                <x-card title="{{ $team->name }}" class="col-12 col-sm-6 col-md-3" :subtitle="$stretchedLink"/>
             @empty
                 <div class="">You have no teams</div>
             @endforelse

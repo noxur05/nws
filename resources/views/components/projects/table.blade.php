@@ -14,7 +14,7 @@
         <tbody>
           @forelse ($projects as $project)
           <tr>
-            <td><a class="link-primary text-decoration-none" href={{ $project->id}}>{{ $project->name }}</a></td>
+            <td><a class="link-primary text-decoration-none" href="{{ route('project.index', ['id'=> $project['id']])}}">{{ $project->name }}</a></td>
           </tr>
           @empty
           <tr>
