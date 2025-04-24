@@ -12,6 +12,7 @@ class TeamController extends Controller
         $currentUser = Auth::user();
         $team = Team::find($id);
         $isOwner = $currentUser->id == $team->owner_id;
-        return view('team.index')->with(['team' => $team, 'isOwner' => $isOwner]);
+        $isMember = $team->users->contains('id', $currentUser->id);
+        return view('team.index')->with(['team' => $team, 'isOwner' => $isOwner, 'isMember' => $isMember]);
     }
 }

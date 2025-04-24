@@ -8,6 +8,9 @@
             <div class="card col-11 col-sm-9 col-md-7 col-lg-5 col-xl-3">
               <div class="card-body">
                 <h5 class="card-title text-center">Register</h5>
+                <div class="text-center small mb-3">
+                  Or <a class="link-primary text-decoration-none" href="{{ route('registration.login')}}">Login</a>
+                </div>
                 <form action="{{ route('registration.register') }}" method="POST">
                   @csrf
                   <x--form-text-input name="name" type="text" value="{{old('name')}}" id="name" placeholder="Name"/>

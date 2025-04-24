@@ -4,6 +4,7 @@
     Teams
 @endsection
 @section('content')
+@if ($isMember || $isOwner)
     <div class="bg-white p-3 rounded-3">
         <div class="">
             <div class="h1">{{$team->name}}</div>
@@ -34,5 +35,7 @@
                 <div class="">This Team Has No Projects</div>
         @endforelse
     </div>
-
+    @else
+        <div class="">You are not a member to this Team</div>
+    @endif
 @endsection
