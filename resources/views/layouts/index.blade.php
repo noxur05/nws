@@ -15,14 +15,14 @@
         }
     </style>
 </head>
-<body class="bg-secondary-subtle">
+<body class="bg-secondary-subtle" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
     <div class="bg-primary-subtle">
         <div class="container-xxl">
             @include('layouts.header')
         </div>
     </div>
     @auth
-        <div class="container-xxl mt-5">
+        <div class="container-xxl my-5">
             <div class="">
                 
             </div>

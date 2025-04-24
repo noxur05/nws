@@ -12,8 +12,14 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $owned_teams = $user->ownedTeams()->withCount(['users'])->get();
+        $projects = $user->teams->flatMap(function ($team) {
+            return $team->projects;
+        });
+        $ownedProjects = $user->ownedTeams->flatMap(function ($team) {
+            return $team->projects;
+        });
+        $allProjects = $projects->concat($ownedProjects);
         
-        return view('home.index')->with(['owned_teams' => $owned_teams]);
+        return view('home.index')->with(['projects' => $allProjects]);
     }
 }

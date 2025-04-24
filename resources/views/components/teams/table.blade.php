@@ -14,14 +14,16 @@
         <tbody>
           @forelse ($globalOwnedTeams as $team)
           <tr>
-            <td><a class="link-primary text-decoration-none stretched-link d-flex justify-content-between w-100" href="{{ route('team.show', ['id'=> $team['id']])}}">
-              <div class="">
-                {{ $team->name }}
-              </div>
-              <div class="">
-                <span><i class="bi bi-people-fill"></i> {{$team->users_count}}</span>
-              </div>
-            </a></td>
+            <td class="position-relative">
+              <a class="link-primary text-decoration-none stretched-link d-flex justify-content-between w-100" href="{{ route('team.show', ['id'=> $team['id']])}}">
+                <div class="">
+                  {{ $team->name }}
+                </div>
+                <div class="">
+                  <span><i class="bi bi-people-fill"></i> {{$team->users_count}}</span>
+                </div>
+              </a>
+            </td>
           </tr>
           @empty
           <tr>
