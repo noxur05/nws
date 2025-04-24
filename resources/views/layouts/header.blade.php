@@ -33,12 +33,12 @@
         </ul>
         <div class="d-none d-lg-flex">
           {{-- TODO: add this as a component --}}
-          <form class="" role="search">
+          {{-- <form class="" role="search">
             <div class="input-group">
               <input type="text" class="form-control border-primary" placeholder="Search">
               <button class="btn btn-primary" type="submit">Search</button>
             </div>
-          </form>
+          </form> --}}
         </div>
         <div class="mx-2">
           <form action="{{route('logout')}}" method="POST">

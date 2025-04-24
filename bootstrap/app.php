@@ -12,9 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([
-            'custom.auth' => AuthMiddleware::class
-        ]);
+        $middleware->redirectGuestsTo(fn() => route('registration.login'));
+        $middleware->redirectUsersTo(fn() => route('home.index'));
     })
     ->withExceptions(function (Exceptions $exceptions) {
     })->create();

@@ -10,7 +10,7 @@
             <div class="h1">{{$project->name}}</div>
         </div>
     </div>
-    <div class="row g-3 mt-3">
+    <div class="row g-3 mt-3 mb-5">
         <div class="h3 mb-0 pb-0">Resources</div>
             @forelse ($project->resources as $resource)
                 @php
@@ -27,7 +27,6 @@
                     subtitle="{{ $resource->created_at }}"
                     :body="$body"
                 />
-                {{-- {{$resource->config->type->name}} --}}
             @empty
             @endforelse
     </div>
