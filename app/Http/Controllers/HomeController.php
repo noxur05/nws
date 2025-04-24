@@ -2,23 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Resource;
-use App\Models\ResourceType;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $projects = $user->teams->flatMap(function ($team) {
-            return $team->projects;
-        });
-        $ownedProjects = $user->ownedTeams->flatMap(function ($team) {
-            return $team->projects;
-        });
-        $allProjects = $projects->concat($ownedProjects);
+
+        $teamIds = $user->teams->pluck('id')
+            ->merge($user->ownedTeams->pluck('id'))
+            ->unique();
+
+        $projects = Project::whereIn('team_id', $teamIds);
+        
+        if ($request->filled('search')){
+            $search = $request->input('search');
+            $projects->where('name', 'like', "%{$search}%");
+        }
+        $allProjects = $projects->get();
         
         return view('home.index')->with(['projects' => $allProjects]);
     }

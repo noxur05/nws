@@ -16,7 +16,7 @@
     </style>
 </head>
 <body class="bg-secondary-subtle" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-    <div class="bg-primary-subtle">
+    <div class="bg-primary-subtle border-white border-bottom">
         <div class="container-xxl">
             @include('layouts.header')
         </div>
