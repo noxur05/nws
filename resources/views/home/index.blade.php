@@ -12,7 +12,7 @@
             <div class="">
                 <form class="" role="search" method="GET" action="{{ route('home.index')}}">
                     <div class="input-group">
-                        <input name="search" type="text" class="form-control border-primary" placeholder="Search projects" value="{{ request('search') }}">
+                        <input name="search" type="text" class="form-control border-primary" placeholder="Search Projects" value="{{ request('search') }}">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </div>
                 </form>
