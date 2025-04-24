@@ -14,8 +14,6 @@ class HomeController extends Controller
         $user = Auth::user();
         $owned_teams = $user->ownedTeams()->withCount(['users'])->get();
         
-        // $teams = $user->teams()->withCount(['users'])->get();
-        // return view('home.index');
         return view('home.index')->with(['owned_teams' => $owned_teams]);
     }
 }

@@ -21,17 +21,18 @@ class AppServiceProvider extends ServiceProvider
                 return;
             }
             $user = Auth::user();
-            $projects = $user->teams->flatMap(function ($team) {
-                return $team->projects;
-            });
-            $ownedProjects = $user->ownedTeams->flatMap(function ($team) {
-                return $team->projects;
-            });
 
-             $globalProjects = $projects->concat($ownedProjects);
+            // $projects = $user->teams->flatMap(function ($team) {
+            //     return $team->projects;
+            // });
+            // $ownedProjects = $user->ownedTeams->flatMap(function ($team) {
+            //     return $team->projects;
+            // });
+            // $globalProjects = $projects->concat($ownedProjects);
             $resource_types = ResourceType::all();
             $teams = $user->teams;
-            $view->with(['globalProjects' => $globalProjects, 'globalResourceTypes' => $resource_types, 'globalTeams' => $teams]);
+            $ownedTeams = $user->ownedTeams()->withCount(['users'])->get();
+            $view->with(['globalOwnedTeams' => $ownedTeams, 'globalResourceTypes' => $resource_types, 'globalTeams' => $teams]);
         });
     }
 }

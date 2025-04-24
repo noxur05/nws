@@ -41,11 +41,14 @@ class UserController extends Controller
             ]);
             $user = Auth::attempt($incomingFields);
             if ($user) {
-                return redirect('/');
+                $request->session()->regenerate();
+
+                return redirect()->route('home.index');
             }
-            return back()->withErrors([
+            return back()
+                ->withErrors([
                 'email' => 'The provided credentials do not match our records.',
-            ]);
+            ])->onlyInput('email');
         }
     }
 
