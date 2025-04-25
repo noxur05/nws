@@ -1,13 +1,13 @@
 @extends('layouts.index')
 
 @section('title')
-    Home
+    Billling
 @endsection
 @section('content')
     <div class="mb-5">
         <div class="bg-white rounded-3 p-2 mb-3 d-flex w-100 justify-content-between h-100 align-items-center">
             <div class="">
-                <div class="h1">Projects</div>
+                <div class="h1">Billings</div>
             </div>
             <div class="">
                 <form class="" role="search" method="GET" action="{{ route('home.index')}}">
@@ -18,7 +18,7 @@
                 </form>
             </div>
         </div>
-        <div class="row g-3">
+        {{-- <div class="row g-3">
             @forelse ($projects as $project )
                 @php
                     $stretchedLink = '<a class="stretched-link link-secondary text-decoration-none" href="' . route("project.show", ["id" => $project["id"]]) . '">Created: ' . $project->created_at . '</a>';
@@ -28,6 +28,6 @@
             @empty
                 <div class="">You have no projects</div>
             @endforelse
-        </div>
+        </div> --}}
     </div>
 @endsection

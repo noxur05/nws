@@ -10,7 +10,8 @@ return new class extends Migration
     {
         Schema::create('billing_records', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('resource_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('project_id')->nullable()->constrained()->nullOnDelete();
+            $table->decimal('amount', 10, 2);
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@
                 @endphp
                 <x-card 
                     class='col-12 col-sm-6 col-md-4'
-                    title="{{$resource->config->type->name}}"
+                    :title=" '<span class=\'d-flex justify-content-between w-100\'>' . $resource->config->type->name . ($resource->active ? '<i class=\'bi bi-toggle-on\'></i>' : '<i class=\'bi bi-toggle-off\'></i>') . '</span>'"
                     subtitle="{{ $resource->created_at }}"
                     :body="$body"
                 />

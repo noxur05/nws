@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillingRecordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ResourceTypeController;
@@ -36,6 +37,15 @@ Route::middleware(['auth'])->group(function () {
         ->group(function () {
             Route::get('{id}', 'show')->name('show');
     });
+
+    Route::controller(BillingRecordController::class)
+        ->name('billing.')
+        ->prefix('billings')
+        ->group(function () {
+            Route::get(
+                '/', 'index'
+            )->name('index');
+        });
 
 });
 

@@ -27,8 +27,9 @@ class TeamController extends Controller
 
         $team = $query->find($id);
         if ($team) {
+
             $isOwner = $currentUser->id == $team->owner_id;
-            $isMember = $team->users->contains('id', $currentUser->id);
+            $isMember = $team->users()->where('id', $currentUser->id)->exists();
             
             return view('team.index')->with(['team' => $team, 'users' => $team->users,'projects' => $team->projects,'isOwner' => $isOwner, 'isMember' => $isMember]);
         }

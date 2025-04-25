@@ -24,7 +24,7 @@
                 @forelse ($users as $user)
                     <x-card 
                         class='col-12 col-sm-6 col-md-4'
-                        :title=" '<span class=\'d-flex justify-content-between w-100\'>' . $user->name . ($user->pivot->role ? '<i class=\'bi bi-star-fill\'></i>' : '') . '</span>'"
+                        :title=" '<span class=\'d-flex justify-content-between w-100\'>' . $user->name . ($user->pivot->role ? '<i class=\'bi bi-person-fill\'></i>' : '') . '</span>'"
                         subtitle="{{ $user->email }}"
                     />
                 @empty
