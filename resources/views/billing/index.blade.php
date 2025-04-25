@@ -23,7 +23,6 @@
         </div>
         <div class="row g-3">
             @forelse ($billings as $billing )
-                {{-- <div class="">{{ $billing->totalBilling() }}</div> --}}
                 <x-card 
                     class='col-12 col-sm-6 col-md-4'
                     title="{{ $billing->name }}"
