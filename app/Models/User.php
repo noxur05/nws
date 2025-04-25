@@ -39,4 +39,8 @@ class User extends Authenticatable
     public function ownedTeams() {
         return $this->hasMany(Team::class, 'owner_id');
     }
+
+    public function billingRecords() {
+        return $this->hasManyThrough(BillingRecord::class, Project::class, 'team_id', 'project_id', 'id', 'id');
+    }
 }

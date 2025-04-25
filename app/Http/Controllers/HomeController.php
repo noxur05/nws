@@ -27,6 +27,7 @@ class HomeController extends Controller
             $search = $request->input('search');
             $projects->where('name', 'like', "%{$search}%");
         }
+        
         $allProjects = $projects->get();
 
         $queries = DB::getQueryLog();

@@ -18,7 +18,7 @@ class ResourceConfigSeeder extends Seeder
                 ResourceConfig::create([
                     'type_id' => $types[$typeName]->id,
                     'config' => json_encode($cfg),
-                    'price' => fake()->randomFloat(2, 5, 100),
+                    'price' => fake()->randomFloat(4, 40, 9999),
                 ]);
             }
         };

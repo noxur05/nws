@@ -20,4 +20,22 @@ class Project extends Model
     {
         return $this->hasMany(Resource::class);
     }
+
+    public function billings()
+    {
+        return $this->hasMany(BillingRecord::class);
+    }
+
+    public function totalBilling() {
+        $resources = $this->resources;
+
+        $totalBilling = 0;
+
+        foreach($resources as $resource)
+        {
+            $totalBilling += $resource->config->price;
+        }
+
+        return $totalBilling;
+    }
 }

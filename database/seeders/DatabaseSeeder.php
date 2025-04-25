@@ -40,10 +40,12 @@ class DatabaseSeeder extends Seeder
 
         Project::factory(400)->create();
 
-        Resource::factory(800)->create();
+        Resource::factory(2000)->create();
 
-        $this->call([
-            BillingRecordSeeder::class
-        ]);
+        // I commented BillingRecord willingly, Run php artisan schedule:run to create billing records
+
+        // $this->call([
+        //     BillingRecordSeeder::class
+        // ]);
     }
 }
