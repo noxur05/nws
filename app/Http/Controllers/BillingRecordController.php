@@ -9,8 +9,8 @@ class BillingRecordController extends Controller
 {
     public function index(Request $request)
     {
-        $user = Auth::user();
-        
+        $currentUser = Auth::user();
+            
         return view('billing.index');
     }
 }
