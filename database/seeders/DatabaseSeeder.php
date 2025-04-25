@@ -38,8 +38,8 @@ class DatabaseSeeder extends Seeder
                 $team->users()->attach($userData);
         }
 
-        Project::factory(1000)->create();
+        Project::factory(4000)->create();
 
-        Resource::factory(5000)->create();
+        Resource::factory(8000)->create();
     }
 }

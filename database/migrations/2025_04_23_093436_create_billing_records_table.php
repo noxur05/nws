@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('project_id')->nullable()->constrained()->nullOnDelete();
             $table->decimal('amount', 10, 2);
+            $table->json('records');
             $table->timestamps();
         });
     }

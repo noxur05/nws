@@ -28,6 +28,7 @@
                     :body="$body"
                 />
             @empty
+                    <div class="">There is no resources in this Project</div>
             @endforelse
     </div>
 @else
